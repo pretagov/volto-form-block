@@ -12,7 +12,7 @@ export const YesNoSchemaExtender = (intl) => {
     properties: {
       widget: {
         title: intl.formatMessage(messages.field_widget),
-        type: 'array',
+        type: 'string',
         choices: [
           ['checkbox', 'Checkbox'],
           ['single_choice', 'Radio'],
