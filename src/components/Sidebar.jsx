@@ -195,6 +195,10 @@ const Sidebar = ({
                       onChangeField={(name, value) => {
                         var update_values = {};
 
+                        if (name === 'field_type') {
+                          update_values['widget'] = null;
+                        }
+
                         onChangeSubBlock(index, {
                           ...subblock,
                           [name]: value,
