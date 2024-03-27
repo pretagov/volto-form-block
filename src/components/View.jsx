@@ -145,8 +145,6 @@ const View = ({ data, id, path }) => {
         )?.[0] ?? null;
       const fieldErrors = v[name] ? { required: v[name] } : {};
 
-      debugger;
-
       // TODO: Below 'show when' logic copied from `FormView.jsx`. Should wrap this in a single function.
       const { show_when_when, show_when_is, show_when_to } = subblock;
       const targetField = data.subblocks.find(
