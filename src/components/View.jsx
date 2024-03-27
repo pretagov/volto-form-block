@@ -18,7 +18,11 @@ const messages = defineMessages({
   },
   field_is_required: {
     id: 'field_is_required',
-    defaultMessage: '{fieldLabel} is required',
+    defaultMessage: 'This field is required',
+  },
+  captcha_is_required: {
+    id: 'captcha_is_required',
+    defaultMessage: 'CAPTCHA is required',
   },
   error: {
     id: 'There is a problem submitting your form',
@@ -241,9 +245,7 @@ const View = ({ data, id, path }) => {
     });
 
     if (data.captcha && !captchaToken.current) {
-      v['captcha'] = intl.formatMessage(messages.field_is_required, {
-        fieldLabel: 'Captcha',
-      });
+      v['captcha'] = intl.formatMessage(messages.captcha_is_required);
     }
 
     setFormErrors({ ...v });
