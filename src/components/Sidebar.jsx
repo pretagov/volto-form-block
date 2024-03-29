@@ -195,6 +195,18 @@ const Sidebar = ({
                       onChangeField={(name, value) => {
                         var update_values = {};
 
+                        const options =
+                          name === 'input_values'
+                            ? value
+                            : subblock.input_values || [];
+                        if (
+                          (name !== 'default_value' ||
+                            name === 'input_values') &&
+                          !options.includes(subblock.default_value)
+                        ) {
+                          update_values['default_value'] = null;
+                        }
+
                         onChangeSubBlock(index, {
                           ...subblock,
                           [name]: value,
