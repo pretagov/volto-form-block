@@ -198,6 +198,17 @@ const Sidebar = ({
                         if (name === 'field_type') {
                           update_values['widget'] = null;
                         }
+                        const options =
+                          name === 'input_values'
+                            ? value
+                            : subblock.input_values || [];
+                        if (
+                          (name !== 'default_value' ||
+                            name === 'input_values') &&
+                          !options.includes(subblock.default_value)
+                        ) {
+                          update_values['default_value'] = null;
+                        }
 
                         onChangeSubBlock(index, {
                           ...subblock,
