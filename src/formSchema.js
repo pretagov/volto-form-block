@@ -41,6 +41,10 @@ const messages = defineMessages({
     id: 'Headers Description',
     defaultMessage: "These headers aren't included in the sent email by default. Use this dropdown to include them in the sent email",
   },
+  sendAdditionalInfo: {
+    id: 'Send additional information',
+    defaultMessage: 'Send additional information',
+  },
   store: {
     id: 'form_save_persistent_data',
     defaultMessage: 'Store compiled data',
@@ -103,7 +107,12 @@ export default (formData) => {
     fieldsets.push({
       id: 'sendingOptions',
       title: 'Sending options',
-      fields: ['attachXml', 'httpHeaders', 'email_format'],
+      fields: [
+        'attachXml',
+        'httpHeaders',
+        'email_format',
+        'sendAdditionalInfo',
+      ],
     });
   }
 
@@ -212,6 +221,18 @@ export default (formData) => {
           ['table', 'Table'],
         ],
         noValueOption: false,
+      },
+      sendAdditionalInfo: {
+        title: intl.formatMessage(messages.sendAdditionalInfo),
+        type: 'string',
+        factory: 'Choice',
+        default: '',
+        isMulti: true,
+        noValueOption: false,
+        choices: [
+          ['currentUrl', 'Current url'],
+          ['time', 'Time'],
+        ],
       },
     },
     required: ['default_to', 'default_from', 'default_subject'],
