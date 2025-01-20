@@ -230,7 +230,8 @@ export default (formData) => {
         isMulti: true,
         noValueOption: false,
         choices: [
-          ['currentUrl', 'Current url'],
+          ['currentUrl', 'Url'],
+          ['date', 'Date'],
           ['time', 'Time'],
         ],
       },
