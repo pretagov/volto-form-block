@@ -302,6 +302,7 @@ const View = ({ data, id, path }) => {
             submitForm(
               path,
               id,
+              data.global_form_id,
               Object.keys(formattedFormData).map((name) => ({
                 ...formattedFormData[name],
               })),
