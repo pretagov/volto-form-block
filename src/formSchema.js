@@ -233,6 +233,7 @@ export default (formData) => {
           ['currentUrl', 'Url'],
           ['date', 'Date'],
           ['time', 'Time'],
+          ['title', 'Current page title'],
         ],
       },
     },
