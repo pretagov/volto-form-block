@@ -322,7 +322,15 @@ export default (props) => {
         noValueOption: false,
         ...(show_when_when_field &&
           choiceTypes.includes(show_when_when_field.field_type) && {
-            choices: show_when_when_field.input_values,
+            choices: show_when_when_field.input_values.map((value) => {
+              if (typeof value === 'string') {
+                return [value, value];
+              }
+              if (Array.isArray(value)) {
+                return [value[0], value[1]];
+              }
+              return value;
+            }),
           }),
         ...(show_when_when_field &&
           show_when_when_field.field_type === 'yes_no' && {
