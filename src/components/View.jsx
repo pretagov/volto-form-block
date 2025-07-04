@@ -249,7 +249,7 @@ const View = ({ data, id, path }) => {
     setFormErrors({ ...v });
     // TODO: This is hard-coded for required being the only client-side validation
     return Object.values(v).every((validation) =>
-      [undefined, null].includes(validation.required),
+      typeof validation === 'string' ? false : [undefined, null].includes(validation.required),
     );
   };
 
